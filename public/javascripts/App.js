@@ -13,10 +13,6 @@ $(function () {
 
     var app = {};
 
-    /*Backbone.sync = Chat.Socket.on('connect', function (data) {
-        console.log('connecting');
-    });*/
-
     // Sends a new mchat message
     Chat.Socket.on('updatechat', function (username, data) {
         var msg = new Chat.Views.Message(username, data);
@@ -42,9 +38,12 @@ $(function () {
         },
 
         render: function (username, data) {
-            $('#conversation').append($(this.el).html(this.template({
+            var $conversation = $('#conversation');
+
+            $conversation.append($(this.el).html(this.template({
                 username: username, data: data
             })));
+            $conversation.scrollTop($conversation[0].scrollHeight);
             return this;
         }
     });
