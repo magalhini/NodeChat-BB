@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="cleartype" content="on">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Awesome Chat</title>
+</head>
+<body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/javascripts/underscore.js"></script>
+    <script src="/javascripts/backbone.js"></script>
+    <script src="/javascripts/App.js"></script>
+
+    <div class="wrapper">
+
+        <script type="text/template" id="prompt">
+           <span>Enter your username:</span>
+           <input type="text"/>
+        </script>
+
+        <script type="text/template" id="message">
+           <p><span class="username"> <%= username %></span> said: <%= data %></p>
+        </script>
+
+        <script type="text/template" id="writing-box">
+            <div id="conversation"></div>
+            <input id="data" style="width:200px;" />
+            <input type="button" id="datasend" value="send" />
+        </script>
+
+        <script type="text/template" id="users-list">
+            <p>USERS ONLINE</p>
+            <ul>
+            </ul>
+        </script>
+
+        <div class="about">
+        </div>
+        <!--
+        <div class="new-message">
+            <div id="conversation"></div>
+            <input id="data" style="width:200px;" />
+            <input type="button" id="datasend" value="send" />
+        </div>-->
+
+    </div>
+
+    <style>
+        body { padding: 0; margin: 3em; }
+
+        .wrapper {
+            max-width: 60em;
+            margin: 20em auto;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        .username {
+            font-weight: bold;
+        }
+
+        .about {
+            text-align: center;
+        }
+
+        .users {
+            float: left;
+            width: 6em;
+            border-right: 1px dashed #cecece;
+            padding: 1em;
+        }
+
+        .users p {
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .new-message {
+            clear: both;
+            position: absolute;
+            bottom: 4em;
+            left: 40%;
+        }
+
+        #conversation {
+            max-height: 30em;
+            overflow-y: auto;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style: none;
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 5px;
+            font-family: Georgia, serif;
+            font-style: italic;
+        }
+    </style>
+
+</body>
+</html>
